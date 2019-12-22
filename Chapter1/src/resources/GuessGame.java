@@ -22,7 +22,7 @@ public class GuessGame {
         System.out.println("I'm thinking of a number between 0 to 9 ...");
 
         while (true) {
-            System.out.println("Number to guess is" + targetNumber);
+            System.out.println("Number to guess is : " + targetNumber);
 
             p1.guess();
             p2.guess();
@@ -36,6 +36,27 @@ public class GuessGame {
 
             guessP3 = p3.number;
             System.out.println("Player 3 guess :" + guessP3);
+            
+            if (guessP1 == targetNumber) {
+            	p1IsRight = true;
+            }
+            if (guessP2 == targetNumber) {
+            	p2IsRight = true;
+            }
+            if (guessP3 == targetNumber) {
+            	p3IsRight = true;
+            }
+            
+            if (p1IsRight || p2IsRight || p3IsRight) {
+            	System.out.println("We have a winner !!!!");
+            	System.out.println("Player one got it, right?" + p1IsRight);
+            	System.out.println("Player two got it, right?" + p2IsRight);
+            	System.out.println("Player three got it, right?" + p3IsRight);
+            	System.out.println("Game is over...");
+            	break;
+            } else {
+            	System.out.println("Players have to try again.");
+            }
         }
     }
 }
